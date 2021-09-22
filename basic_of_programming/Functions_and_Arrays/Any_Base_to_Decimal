@@ -1,0 +1,32 @@
+// use to convert binary, octal number system to decimal number system.
+// fundamental process
+// divide it by destination power
+// multipy remainder by source power
+// keep doing it's sum.
+
+
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+      Scanner scn = new Scanner(System.in);
+      int n = scn.nextInt();
+      int b = scn.nextInt();
+      int d = getValueIndecimal(n, b);
+      System.out.println(d);
+   }
+  
+   public static int getValueIndecimal(int n, int b){
+      // write your code here
+      int r = 0;
+      int bPower = 1;
+      while(n>0){ // main algorithm.
+          int rem = n%10;
+          r+=rem*bPower;
+          bPower = bPower*b;
+          n/=10;
+      }
+      return r;
+   }
+  }
